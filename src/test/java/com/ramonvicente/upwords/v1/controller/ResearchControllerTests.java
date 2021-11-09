@@ -25,7 +25,7 @@ public class ResearchControllerTests {
 		var researchEntry = new ResearchEntry("Word Word Word word", "Word");
 
 		mockMvc.perform( MockMvcRequestBuilders
-			.post("/api/v1/researchEntry/findInfos")
+			.post("/api/v1/research/findInfos")
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(new ObjectMapper().writeValueAsString(researchEntry)))
 			.andExpectAll(status().isOk());

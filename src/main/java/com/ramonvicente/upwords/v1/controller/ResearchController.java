@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/researchEntry")
+@RequestMapping(path = "api/v1/research")
 public class ResearchController {
   
   @Autowired
@@ -26,7 +26,7 @@ public class ResearchController {
   public ResearchResult findFrequencyOfWords(@Valid @RequestBody ResearchEntry request) {
     var frequencyOfWords = this.wordsFrequencyService.frequencyOfWords(request);
     var similarWords = this.similarWordService.findAllSimilarWords(request);
-    
+
     return new ResearchResult(frequencyOfWords, similarWords);
   }
 }
