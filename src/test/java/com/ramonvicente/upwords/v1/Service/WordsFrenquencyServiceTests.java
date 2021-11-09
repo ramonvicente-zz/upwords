@@ -16,6 +16,7 @@ class WordsFrenquencyServiceTests {
 	void shouldReturnTheFrequencyOfTheGivenWord() {
 		wordsFrequencyService = new WordsFrequencyService();
 		ResearchEntry researchEntry = new ResearchEntry("Word Words Wor word", "Word");
+		
 		assertEquals(1, wordsFrequencyService.frequencyOfWords(researchEntry));
 	}
 

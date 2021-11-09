@@ -13,6 +13,7 @@ public class SimilarWordService {
   
   public List<String> findAllSimilarWords(ResearchEntry researchEntry) {
     var distance = new LevenshteinDistance();
+    
     return researchEntry.findAllWords()
       .stream()
       .filter(word -> distance.apply(word, researchEntry.getKeyWord()) == 1)

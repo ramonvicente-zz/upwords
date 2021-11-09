@@ -18,6 +18,7 @@ public class SimilarWordServiceTest {
   void shouldReturnTheSimilarityOfWords() {
     similarWordService = new SimilarWordService();
     var researchEntry = new ResearchEntry("Word Words Wor word", "Word");
+    
     assertEquals(Arrays.asList("Words", "Wor", "word"), 
       similarWordService.findAllSimilarWords(researchEntry));
   }

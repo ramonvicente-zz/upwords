@@ -26,6 +26,7 @@ public class ResearchController {
   public ResearchResult findFrequencyOfWords(@Valid @RequestBody ResearchEntry request) {
     var frequencyOfWords = this.wordsFrequencyService.frequencyOfWords(request);
     var similarWords = this.similarWordService.findAllSimilarWords(request);
+    
     return new ResearchResult(frequencyOfWords, similarWords);
   }
 }
