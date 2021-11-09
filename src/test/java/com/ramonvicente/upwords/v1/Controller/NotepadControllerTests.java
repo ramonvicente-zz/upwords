@@ -25,7 +25,7 @@ public class NotepadControllerTests {
 		var notepad = new Notepad("Word Word Word word", "Word");
 
 		mockMvc.perform( MockMvcRequestBuilders
-			.post("/api/v1/notepad/frequency")
+			.post("/api/v1/notepad/findInfos")
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(new ObjectMapper().writeValueAsString(notepad)))
 			.andExpectAll(status().isOk());

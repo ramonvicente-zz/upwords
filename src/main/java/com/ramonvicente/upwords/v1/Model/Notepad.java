@@ -1,5 +1,8 @@
 package com.ramonvicente.upwords.v1.Model;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 public class Notepad {
@@ -31,6 +34,10 @@ public class Notepad {
 
   public void setKeyWord(String keyWord) {
     this.keyWord = keyWord;
+  }
+
+  public List<String> findAllWords() {
+    return Arrays.asList(this.note.split("\\W+"));
   }
   
 }
