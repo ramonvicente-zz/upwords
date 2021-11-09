@@ -1,9 +1,9 @@
-package com.ramonvicente.upwords.v1.Service;
+package com.ramonvicente.upwords.v1.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
 
 import org.springframework.stereotype.Service;
 import org.apache.commons.text.similarity.LevenshteinDistance;
@@ -11,11 +11,11 @@ import org.apache.commons.text.similarity.LevenshteinDistance;
 @Service
 public class SimilarWordService {
   
-  public List<String> findAllSimilarWords(Notepad request) {
+  public List<String> findAllSimilarWords(ResearchEntry researchEntry) {
     var distance = new LevenshteinDistance();
-    return request.findAllWords()
+    return researchEntry.findAllWords()
       .stream()
-      .filter(word -> distance.apply(word, request.getKeyWord()) == 1)
+      .filter(word -> distance.apply(word, researchEntry.getKeyWord()) == 1)
       .collect(Collectors.toList());
   }
 }

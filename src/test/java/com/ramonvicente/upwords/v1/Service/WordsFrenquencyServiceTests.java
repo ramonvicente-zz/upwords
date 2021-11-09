@@ -1,8 +1,8 @@
-package com.ramonvicente.upwords.v1.Service;
+package com.ramonvicente.upwords.v1.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,8 +15,8 @@ class WordsFrenquencyServiceTests {
 	@Test
 	void shouldReturnTheFrequencyOfTheGivenWord() {
 		wordsFrequencyService = new WordsFrequencyService();
-		Notepad notepad = new Notepad("Word Words Wor word", "Word");
-		assertEquals(1, wordsFrequencyService.frequencyOfWords(notepad));
+		ResearchEntry researchEntry = new ResearchEntry("Word Words Wor word", "Word");
+		assertEquals(1, wordsFrequencyService.frequencyOfWords(researchEntry));
 	}
 
 }

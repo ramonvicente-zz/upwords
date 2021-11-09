@@ -1,17 +1,17 @@
-package com.ramonvicente.upwords.v1.Service;
+package com.ramonvicente.upwords.v1.service;
 
-import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class WordsFrequencyService {
 
-  public long frequencyOfWords(Notepad notepad) {
-    var allWords = notepad.findAllWords();
+  public long frequencyOfWords(ResearchEntry researchEntry) {
+    var allWords = researchEntry.findAllWords();
 
     return allWords.stream()
-      .filter(word -> word.equals(notepad.getKeyWord()))
+      .filter(word -> word.equals(researchEntry.getKeyWord()))
       .count();
   }
   

@@ -1,9 +1,9 @@
-package com.ramonvicente.upwords.v1.Controller;
+package com.ramonvicente.upwords.v1.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +15,19 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class NotepadControllerTests {
+public class ResearchControllerTests {
 
 	@Autowired
   private MockMvc mockMvc;
 
   @Test
 	void shouldReturnOkWhenPassAValidInfo() throws Exception {
-		var notepad = new Notepad("Word Word Word word", "Word");
+		var researchEntry = new ResearchEntry("Word Word Word word", "Word");
 
 		mockMvc.perform( MockMvcRequestBuilders
-			.post("/api/v1/notepad/findInfos")
+			.post("/api/v1/researchEntry/findInfos")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(new ObjectMapper().writeValueAsString(notepad)))
+			.content(new ObjectMapper().writeValueAsString(researchEntry)))
 			.andExpectAll(status().isOk());
 	}
 }

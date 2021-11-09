@@ -1,11 +1,11 @@
-package com.ramonvicente.upwords.v1.Controller;
+package com.ramonvicente.upwords.v1.controller;
 
 import javax.validation.Valid;
 
-import com.ramonvicente.upwords.v1.Model.Notepad;
-import com.ramonvicente.upwords.v1.Model.NotepadInfo;
-import com.ramonvicente.upwords.v1.Service.SimilarWordService;
-import com.ramonvicente.upwords.v1.Service.WordsFrequencyService;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
+import com.ramonvicente.upwords.v1.model.ResearchResult;
+import com.ramonvicente.upwords.v1.service.SimilarWordService;
+import com.ramonvicente.upwords.v1.service.WordsFrequencyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/notepad")
-public class NotepadController {
+@RequestMapping(path = "api/v1/researchEntry")
+public class ResearchController {
   
   @Autowired
   private WordsFrequencyService wordsFrequencyService;
@@ -23,9 +23,9 @@ public class NotepadController {
   private SimilarWordService similarWordService;
   
   @PostMapping(path = "/findInfos")
-  public NotepadInfo findFrequencyOfWords(@Valid @RequestBody Notepad request) {
+  public ResearchResult findFrequencyOfWords(@Valid @RequestBody ResearchEntry request) {
     var frequencyOfWords = this.wordsFrequencyService.frequencyOfWords(request);
     var similarWords = this.similarWordService.findAllSimilarWords(request);
-    return new NotepadInfo(frequencyOfWords, similarWords);
+    return new ResearchResult(frequencyOfWords, similarWords);
   }
 }

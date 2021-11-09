@@ -1,23 +1,23 @@
-package com.ramonvicente.upwords.v1.Model;
+package com.ramonvicente.upwords.v1.model;
 
 import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-public class Notepad {
+public class ResearchEntry {
   
   @NotNull
   private String note;
   @NotNull
   private String keyWord;
 
-  public Notepad(String note, String keyWord) {
+  public ResearchEntry(String note, String keyWord) {
     this.note = note;
     this.keyWord = keyWord;
   }
 
-  public Notepad() {
+  public ResearchEntry() {
   }
 
   public String getNote() {

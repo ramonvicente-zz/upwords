@@ -1,10 +1,10 @@
-package com.ramonvicente.upwords.v1.Service;
+package com.ramonvicente.upwords.v1.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 
-import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.model.ResearchEntry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,9 +17,9 @@ public class SimilarWordServiceTest {
   @Test
   void shouldReturnTheSimilarityOfWords() {
     similarWordService = new SimilarWordService();
-    var notepad = new Notepad("Word Words Wor word", "Word");
+    var researchEntry = new ResearchEntry("Word Words Wor word", "Word");
     assertEquals(Arrays.asList("Words", "Wor", "word"), 
-      similarWordService.findAllSimilarWords(notepad));
+      similarWordService.findAllSimilarWords(researchEntry));
   }
   
 }
