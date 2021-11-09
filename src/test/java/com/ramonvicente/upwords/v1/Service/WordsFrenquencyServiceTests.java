@@ -1,8 +1,8 @@
-package com.ramonvicente.upwords.Service;
+package com.ramonvicente.upwords.v1.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.ramonvicente.upwords.Model.Notepad;
+import com.ramonvicente.upwords.v1.Model.Notepad;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

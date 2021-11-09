@@ -1,8 +1,8 @@
-package com.ramonvicente.upwords.Service;
+package com.ramonvicente.upwords.v1.Service;
 
 import java.util.Arrays;
 
-import com.ramonvicente.upwords.Model.Notepad;
+import com.ramonvicente.upwords.v1.Model.Notepad;
 
 import org.springframework.stereotype.Service;
 

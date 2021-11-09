@@ -1,4 +1,4 @@
-package com.ramonvicente.upwords.Model;
+package com.ramonvicente.upwords.v1.Model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,9 @@
-package com.ramonvicente.upwords.Controller;
+package com.ramonvicente.upwords.v1.Controller;
 
 import javax.validation.Valid;
 
-import com.ramonvicente.upwords.Model.Notepad;
-import com.ramonvicente.upwords.Service.WordsFrequencyService;
+import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.Service.WordsFrequencyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
