@@ -1,16 +1,20 @@
 package com.ramonvicente.upwords.Model;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.validation.constraints.NotNull;
 
 public class Notepad {
-
+  
+  @NotNull
   private String note;
+  @NotNull
   private String keyWord;
 
   public Notepad(String note, String keyWord) {
     this.note = note;
     this.keyWord = keyWord;
+  }
+
+  public Notepad() {
   }
 
   public String getNote() {
@@ -27,10 +31,6 @@ public class Notepad {
 
   public void setKeyWord(String keyWord) {
     this.keyWord = keyWord;
-  }
-
-  public List<String> getAllWords() {
-    return Arrays.asList(note.split("\\W+"));
   }
   
 }
