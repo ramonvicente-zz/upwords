@@ -3,6 +3,8 @@ package com.ramonvicente.upwords.v1.Controller;
 import javax.validation.Valid;
 
 import com.ramonvicente.upwords.v1.Model.Notepad;
+import com.ramonvicente.upwords.v1.Model.NotepadInfo;
+import com.ramonvicente.upwords.v1.Service.SimilarWordService;
 import com.ramonvicente.upwords.v1.Service.WordsFrequencyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,13 @@ public class NotepadController {
   
   @Autowired
   private WordsFrequencyService wordsFrequencyService;
+  @Autowired
+  private SimilarWordService similarWordService;
   
-  @PostMapping(path = "/frequency")
-  public long findFrequencyOfWords(@Valid @RequestBody Notepad request) {
-    return this.wordsFrequencyService.frequencyOfWords(request);
+  @PostMapping(path = "/findInfos")
+  public NotepadInfo findFrequencyOfWords(@Valid @RequestBody Notepad request) {
+    var frequencyOfWords = this.wordsFrequencyService.frequencyOfWords(request);
+    var similarWords = this.similarWordService.findAllSimilarWords(request);
+    return new NotepadInfo(frequencyOfWords, similarWords);
   }
 }
