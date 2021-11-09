@@ -106,7 +106,7 @@ Describe a user interface that utilizes your new endpoint:
 ### Time Spent
 I can say that I spent around **5:30h to 6h** hours on this project.
 
-This project was not a big API but as it is a test I took time to see the best way to do the solutions, architecture, and the whole activities. Also due to personal things I needed to split the time dedicated to this project in many moments of the all days. I think those informations are relevant to understand why I took this time to finish the project.
+This project was not a big API but as it is a test I took time to see the best way to do the solutions, architecture, and handle with some issues that appears time to time (vscode, gradle, tests). Also due to personal things I needed to split the time dedicated to this project in many moments of the all days. I think those informations are relevant to understand why I took this time to finish the project.
 
 ## Appreciation
 
