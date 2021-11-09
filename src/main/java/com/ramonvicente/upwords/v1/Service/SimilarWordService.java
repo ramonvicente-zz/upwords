@@ -1,5 +1,6 @@
 package com.ramonvicente.upwords.v1.service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,8 +13,11 @@ import org.apache.commons.text.similarity.LevenshteinDistance;
 public class SimilarWordService {
   
   public List<String> findAllSimilarWords(ResearchEntry researchEntry) {
+    if( researchEntry.getText() == null)
+      return Arrays.asList();
+
     var distance = new LevenshteinDistance();
-    
+
     return researchEntry.findAllWords()
       .stream()
       .filter(word -> distance.apply(word, researchEntry.getKeyWord()) == 1)

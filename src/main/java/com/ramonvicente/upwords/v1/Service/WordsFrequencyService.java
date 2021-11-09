@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 public class WordsFrequencyService {
 
   public long frequencyOfWords(ResearchEntry researchEntry) {
+    if( researchEntry.getText() == null)
+      return 0;
+
     var allWords = researchEntry.findAllWords();
 
     return allWords.stream()

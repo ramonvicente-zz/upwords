@@ -21,7 +21,7 @@ public class ResearchControllerTests {
   private MockMvc mockMvc;
 
   @Test
-	void shouldReturnOkWhenPassAValidInfo() throws Exception {
+	void shouldReturnOkWhenResearchEntryIsValid() throws Exception {
 		var researchEntry = new ResearchEntry("Word Word Word word", "Word");
 
 		mockMvc.perform( MockMvcRequestBuilders
@@ -29,5 +29,27 @@ public class ResearchControllerTests {
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(new ObjectMapper().writeValueAsString(researchEntry)))
 			.andExpectAll(status().isOk());
+	}
+
+	@Test
+	void shouldThrowBadRequestWhenResearchEntryHasEmptyField() throws Exception {
+		var researchEntry = new ResearchEntry("Word Word Word word", "");
+
+		mockMvc.perform( MockMvcRequestBuilders
+			.post("/api/v1/research/findInfos")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(new ObjectMapper().writeValueAsString(researchEntry)))
+			.andExpectAll(status().isBadRequest());
+	}
+
+	@Test
+	void shouldThrowBadRequestWhenResearchEntryHasNullField() throws Exception {
+		var researchEntry = new ResearchEntry(null, "keyWord");
+
+		mockMvc.perform( MockMvcRequestBuilders
+			.post("/api/v1/research/findInfos")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(new ObjectMapper().writeValueAsString(researchEntry)))
+			.andExpectAll(status().isBadRequest());
 	}
 }
